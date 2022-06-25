@@ -1,10 +1,10 @@
-import CardList from "./components/CardList";
-import SearchBox from "./components/SearchBox";
-import { robots as allRobots} from "./robots";
+import CardList from "../components/CardList";
+import SearchBox from "../components/SearchBox";
+import { robots as allRobots} from "../robots";
 import './App.css';
 import 'tachyons';
 import {useEffect, useState} from "react";
-import Scroll from "./components/Scroll";
+import Scroll from "../components/Scroll";
 
 const App = () => {
     const [robots, setRobots] = useState([]);
