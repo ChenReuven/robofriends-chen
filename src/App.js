@@ -4,6 +4,7 @@ import { robots as allRobots} from "./robots";
 import './App.css';
 import 'tachyons';
 import {useEffect, useState} from "react";
+import Scroll from "./components/Scroll";
 
 const App = () => {
     const [robots, setRobots] = useState([]);
@@ -24,7 +25,9 @@ const App = () => {
         <div className="tc">
             <h1 className="f2">RoboFriends</h1>
             <SearchBox searchChange={onSearchChanged}/>
-            <CardList robots={robots}/>
+            <Scroll>
+                <CardList robots={robots}/>
+            </Scroll>
         </div>
     )
 }
