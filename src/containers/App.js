@@ -21,6 +21,10 @@ const App = () => {
             .then(res => res.json())
             .then(data => setRobots(data));
     }, [])
+
+    if(!robots.length) {
+        return <h1>Loading...</h1>
+    }
     return (
         <div className="tc">
             <h1 className="f2">RoboFriends</h1>
