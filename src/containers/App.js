@@ -5,6 +5,7 @@ import './App.css';
 import 'tachyons';
 import {useEffect, useState} from "react";
 import Scroll from "../components/Scroll";
+import ErrorBoundary from "../components/ErrorBoundary";
 
 const App = () => {
     const [robots, setRobots] = useState([]);
@@ -22,15 +23,14 @@ const App = () => {
             .then(data => setRobots(data));
     }, [])
 
-    if(!robots.length) {
-        return <h1>Loading...</h1>
-    }
     return (
         <div className="tc">
             <h1 className="f2">RoboFriends</h1>
             <SearchBox searchChange={onSearchChanged}/>
             <Scroll>
-                <CardList robots={robots}/>
+                <ErrorBoundary>
+                    <CardList robots={robots}/>
+                </ErrorBoundary>
             </Scroll>
         </div>
     )
